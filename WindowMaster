@@ -17,6 +17,11 @@ public class windowMaster {
 		float perimeter;
 		float cost;
 		float area;
+		float windowPrice = 0.f;
+		float trimPrice = 0.f;
+
+		//declare variable that will make the program count how many windows are there
+		int numOfWindows = 0;
 
 
 		//Since we'll be getting a user's input, declare & initialize a scanner
@@ -27,12 +32,26 @@ public class windowMaster {
 		height = myScanner.nextLine();
 		System.out.println("Please enter window's width: ");
 		width = myScanner.nextLine();
+		System.out.println("Please enter window's price: ");
+		windowPrice = Float.parseFloat(myScanner.nextLine());
+		System.out.println("Please enter window's trim price : ");
+		trimPrice = Float.parseFloat(myScanner.nextLine());
+
+		System.out.println("How many windows are there? : ");
+		numOfWindows = Integer.parseInt(myScanner.nextLine());
 
 
 		//convert String values of height & width to float
-		height = Float.parseFloat(height);
-		width = Float.parseFloat(width);
+		try {
 
+
+			height = Float.parseFloat(height);
+			width = Float.parseFloat(width);
+
+		} catch(NumberFormatException ex) {
+
+			System.out.println("Input could not be parsed into an integer.")
+		}
 
 		//Calculate Area
 		area = height * width;
@@ -42,7 +61,7 @@ public class windowMaster {
 
 		//Calculate total Cost
 		//Use a hard-coded value for material cost
-		cost = ((3.50f * area)) + ((2.25f * perimeter));
+		cost = ((windowPrice * area)) + ((trimPrice * perimeter)) * numOfWindows;
 
 		//Display results to the user
 		System.out.println("Window height = " + height);
