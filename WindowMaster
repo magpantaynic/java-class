@@ -1,0 +1,57 @@
+//Window Master Exercise
+import java.util.Scanner;
+
+
+public class windowMaster {
+	
+	public static void main(String[] args)
+	{
+
+		// declare string variables for height & width
+		String height;
+		String width;
+
+		//declare variables in float
+		float heightF;
+		float widthF;
+		float perimeter;
+		float cost;
+		float area;
+
+
+		//Since we'll be getting a user's input, declare & initialize a scanner
+		Scanner myScanner = new Scanner(System.in);
+
+		//Ask for user's input
+		System.out.println("Please enter window's height: ");
+		height = myScanner.nextLine();
+		System.out.println("Please enter window's width: ");
+		width = myScanner.nextLine();
+
+
+		//convert String values of height & width to float
+		height = Float.parseFloat(height);
+		width = Float.parseFloat(width);
+
+
+		//Calculate Area
+		area = height * width;
+
+		//Calculate Perimeter
+		perimeter = 2 * (height + width);
+
+		//Calculate total Cost
+		//Use a hard-coded value for material cost
+		cost = ((3.50f * area)) + ((2.25f * perimeter));
+
+		//Display results to the user
+		System.out.println("Window height = " + height);
+		System.out.println("Window width = " + width);
+		System.out.println("Window area = " + area);
+		System.out.println("Window perimeter = " + perimeter);
+		System.out.println("Total cost = " + cost);
+
+	}
+
+
+}
