@@ -28,30 +28,39 @@ public class windowMaster {
 		Scanner myScanner = new Scanner(System.in);
 
 		//Ask for user's input
-		System.out.println("Please enter window's height: ");
-		height = myScanner.nextLine();
-		System.out.println("Please enter window's width: ");
-		width = myScanner.nextLine();
-		System.out.println("Please enter window's price: ");
-		windowPrice = Float.parseFloat(myScanner.nextLine());
-		System.out.println("Please enter window's trim price : ");
-		trimPrice = Float.parseFloat(myScanner.nextLine());
+		do { 
 
-		System.out.println("How many windows are there? : ");
-		numOfWindows = Integer.parseInt(myScanner.nextLine());
+			try{
 
 
-		//convert String values of height & width to float
-		try {
+				System.out.println("Please enter window's height: ");
+				height = myScanner.nextLine();
+				height = Float.parseFloat(height);
+
+				System.out.println("Please enter window's width: ");
+				width = myScanner.nextLine();
+				width = Float.parseFloat(width);
+
+				System.out.println("Please enter window's price: ");
+				windowPrice = Float.parseFloat(myScanner.nextLine());
+				
+				System.out.println("Please enter window's trim price : ");
+				trimPrice = Float.parseFloat(myScanner.nextLine());
+
+				System.out.println("How many windows are there? : ");
+				numOfWindows = Integer.parseInt(myScanner.nextLine());
+
+				validInput = true;
+
+			} catch(NumberFormatException ex) {
+				System.out.println("Your input was not a valid number.")
+				validInput = false;
 
 
-			height = Float.parseFloat(height);
-			width = Float.parseFloat(width);
+			}
 
-		} catch(NumberFormatException ex) {
+		} while (!validInput)
 
-			System.out.println("Input could not be parsed into an integer.")
-		}
 
 		//Calculate Area
 		area = height * width;
